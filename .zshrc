@@ -1,20 +1,17 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/usr/bin
-
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+# export PATH=$HOME/bin:/usr/local/bin:/usr/bin:$PATH
+export PATH=$HOME/juliav1.7:$HOME/.julia/bin:$HOME/.emacs.d/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export ZSH="/Users/menajacobs/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="cloud"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -77,11 +74,11 @@ setopt HIST_IGNORE_ALL_DUPS
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-#  User configuration
+# User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -98,21 +95,6 @@ export LANG=en_US.UTF-8
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Personal functions
-function activate() {
-	env_name=${1:-.venv}
-	conda deactivate
-	source $env_name/bin/activate
-}
-
-function m() {
-	if [[ $VIRTUAL_ENV != "" ]]; then
-		deactivate
-	fi
-	cd ~/buli/$1
-	source .venv/bin/activate
-}
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -123,8 +105,25 @@ function m() {
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias pc="pre-commit run"
 alias ccc="cz c"
-#
+alias ls="colorls --sd -A"
+alias pup="pip3 install -U pip"
+alias pir="pip3 install -r requirements.txt"
+alias szsh="source ~/.zshrc"
+alias pipi="pip3 install --no-use-pep517 $@"
 
+# Custom functions
+function activate(){
+	source "$@"/bin/activate;
+}
+
+# additional zsh plugins 
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# ~/.zshrc
 eval "$(starship init zsh)"
-eval "$(pyenv init --path)"
 
+export PATH="/opt/homebrew/bin:opt/sqlite/bin:$PATH"
+
+eval "$(pyenv init --path)"
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"

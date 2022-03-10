@@ -1,17 +1,34 @@
 # If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:/usr/bin:$PATH
+#
+# Julia
+export PATH=$HOME/juliav1.7:$HOME/.julia/bin:$HOME/.emacs.d/bin:$PATH
+
+# Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-# export PATH=$HOME/bin:/usr/local/bin:/usr/bin:$PATH
-export PATH=$HOME/juliav1.7:$HOME/.julia/bin:$HOME/.emacs.d/bin:$PATH
+
+# go
+export PATH=/usr/local/go/bin:$PATH
+
+# ruby
+export PATH=/usr/bin/gem:$PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/menajacobs/.oh-my-zsh"
 
+# X11
+export PATH=/opt/X11/bin:$PATH
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="cloud"
+# use below, if not using alacritty and installed xterm-256color-italic.terminfo
+# if ! { [ "$TERM" = "xterm-256color-italic" ] && [ -n "$TMUX" ]; } then
+#  export TERM="xterm-256color-italic"
+# fi
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -105,11 +122,11 @@ export LANG=en_US.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias pc="pre-commit run"
 alias ccc="cz c"
-alias ls="colorls --sd -A"
+alias lc="colorls --sd -A"
 alias pup="pip3 install -U pip"
 alias pir="pip3 install -r requirements.txt"
-alias szsh="source ~/.zshrc"
 alias pipi="pip3 install --no-use-pep517 $@"
+alias editzsh="nvim ~/.zshrc"
 
 # Custom functions
 function activate(){
@@ -127,3 +144,4 @@ export PATH="/opt/homebrew/bin:opt/sqlite/bin:$PATH"
 
 eval "$(pyenv init --path)"
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+eval "$(rbenv init - zsh)"

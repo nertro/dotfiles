@@ -16,9 +16,10 @@ return require('packer').startup(function()
 		      -- require('gitsigns').setup()
 	  -- end
   --   }
+  --   search etc
   use {
 	    'nvim-telescope/telescope.nvim',
-	      requires = { 
+	      requires = {
 		      {'nvim-lua/plenary.nvim'},
 		      { 'nvim-telescope/telescope-live-grep-raw.nvim' }
 	      }
@@ -30,7 +31,13 @@ return require('packer').startup(function()
   use 'rcarriga/nvim-notify'
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use 'williamboman/nvim-lsp-installer'
-  use 'plasticboy/vim-markdown' -- Markdown
+  -- use 'plasticboy/vim-markdown' -- Markdown
+  -- zettelkasten
+  use 'nvim-lua/popup.nvim'
+  use 'nvim-telescope/telescope-media-files.nvim'
+  use 'renerocksai/calendar-vim'
+  use 'renerocksai/telekasten.nvim'
+  -- autocomplete
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
@@ -40,7 +47,10 @@ return require('packer').startup(function()
   use 'SirVer/ultisnips'
   use 'honza/vim-snippets'
   use 'quangnguyen30192/cmp-nvim-ultisnips'
+  use 'jiangmiao/auto-pairs'
+  -- jupyter
   use { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' }
+  -- editor style
   use {
   'nvim-lualine/lualine.nvim',
   requires = { 'kyazdani42/nvim-web-devicons', opt = true }}
@@ -48,6 +58,5 @@ return require('packer').startup(function()
   use 'nocksock/bloop-vim'
   -- terminal
   use 'akinsho/toggleterm.nvim'
-  use 'jiangmiao/auto-pairs'
 end)
 

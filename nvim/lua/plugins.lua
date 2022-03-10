@@ -45,6 +45,8 @@ return require('packer').startup(function()
   'nvim-lualine/lualine.nvim',
   requires = { 'kyazdani42/nvim-web-devicons', opt = true }}
   use 'folke/tokyonight.nvim'
+  use 'nocksock/bloop-vim'
+  -- terminal
   use 'akinsho/toggleterm.nvim'
   use 'jiangmiao/auto-pairs'
 end)

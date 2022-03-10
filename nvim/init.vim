@@ -61,3 +61,4 @@ set incsearch
 set ignorecase
 set smartcase
 
+colorscheme bloop

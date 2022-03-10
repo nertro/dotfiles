@@ -149,10 +149,10 @@ lsp_installer.on_server_ready(function(server)
 		}
 	}
     end
-    if server.name == "terraformls" then
-	    print("tf setup")
-	    opts.filetypes = { 'terraform', 'tf', 'tftmpl' }
-    end
+    -- if server.name == "terraformls" then
+	    -- print("tf setup")
+	    -- opts.filetypes = { 'terraform', 'tf', 'tftmpl' }
+    -- end
     -- (optional) Customize the options passed to the server
     -- if server.name == "tsserver" then
     --     opts.root_dir = function() ... end

@@ -15,7 +15,8 @@ call plug#end()
 " Load plugins here
 lua require('init')
 
-let g:python3_host_prog = '/home/menajacobs/.nvim_venv/bin/python'
+let g:python3_host_prog = '/Users/menajacobs/.config/nvim/.nvim-venv/bin/python'
+let g:ruby_host_prog = '/Users/menajacobs/.rbenv/versions/3.1.1/bin/neovim-ruby-host'
 
 let g:db_ui_env_variable_url = 'ENV_VAR_PSQL_URL'
 

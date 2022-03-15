@@ -31,21 +31,18 @@ local opts = { noremap=true, silent=true }
 --     map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
 --   end
 -- }
-
 --# Personal Mappings
 -- Keys
 vim.g.mapleader = " "
 vim.g.maplocalleader = ';'
-vim.api.nvim_set_keymap( 'i', 'jj', '<Esc>', opts)
-vim.api.nvim_set_keymap( 't', 'jj', '<C-\\><C-n>', opts)
-vim.api.nvim_set_keymap( 'n', 'L', '$', opts)
-vim.api.nvim_set_keymap( 'n', 'H', '$', opts)
-vim.api.nvim_set_keymap( 'n', 'gj', 'j', opts)
-vim.api.nvim_set_keymap( 'n', 'gk', 'k', opts)
-vim.api.nvim_set_keymap( 'v', '<gv', '<', opts)
-vim.api.nvim_set_keymap( 'v', '>gv', '>', opts)
-vim.api.nvim_set_keymap( 'v', 'gj', 'j', opts)
-vim.api.nvim_set_keymap( 'v', 'gk', 'k', opts)
+vim.api.nvim_set_keymap( 'i', 'jf', '<Esc>', opts)
+vim.api.nvim_set_keymap( 't', 'jf', '<C-\\><C-n>', opts)
+vim.api.nvim_set_keymap( 'n', 'j', 'gj', opts)
+vim.api.nvim_set_keymap( 'n', 'k', 'gk', opts)
+vim.api.nvim_set_keymap( 'v', '<', '<gv', opts)
+vim.api.nvim_set_keymap( 'v', '>', '>gV', opts)
+vim.api.nvim_set_keymap( 'v', 'j', 'gj', opts)
+vim.api.nvim_set_keymap( 'v', 'k', 'gk', opts)
 -- window navigation
 vim.api.nvim_set_keymap( 'n', 'vv', '<C-w>v', opts)
 vim.api.nvim_set_keymap( 'n', 'ss', '<C-w>s', opts)
@@ -67,7 +64,7 @@ vim.api.nvim_set_keymap( 'n', '<leader>q', '<cmd>q<CR>', opts)
 vim.api.nvim_set_keymap( 'n', '<C-s>', '<cmd>w<CR>', opts)
 vim.api.nvim_set_keymap( 'i', '<C-s>', '<Esc><cmd>w<CR>i', opts)
 -- Telescope
-vim.api.nvim_set_keymap('n', 'B', '<cmd>Telescope buffers<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>fgr', '<cmd>lua require("telescope").extensions.live_grep_raw.live_grep_raw()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', opts)

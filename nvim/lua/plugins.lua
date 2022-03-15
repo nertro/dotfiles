@@ -48,8 +48,8 @@ return require('packer').startup(function()
   use 'honza/vim-snippets'
   use 'quangnguyen30192/cmp-nvim-ultisnips'
   use 'jiangmiao/auto-pairs'
-  -- jupyter
-  use { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' }
+  -- kitty
+  use {'knubie/vim-kitty-navigator', run = 'cp ./*.py ~/.config/kitty/'}
   -- editor style
   use {
   'nvim-lualine/lualine.nvim',

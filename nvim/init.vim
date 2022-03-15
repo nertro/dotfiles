@@ -20,6 +20,10 @@ let g:ruby_host_prog = '/Users/menajacobs/.rbenv/versions/3.1.1/bin/neovim-ruby-
 
 let g:db_ui_env_variable_url = 'ENV_VAR_PSQL_URL'
 
+" Set specific title to help vim-kitty-navigator
+set title
+let &titlestring='%t - nvim'
+
 filetype plugin indent on
 
 let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
@@ -38,18 +42,16 @@ set relativenumber
 set scrolloff=5
 set noshowmode
 
-" au BufNewFile,BufRead *.py
-
-"     \ set tabstop=4 |
-
-"     \ set softtabstop=4 |
-
-"     \ set shiftwidth=4 |
+au BufNewFile,BufRead *.py
+     \ set tabstop=4 |
+     \ set softtabstop=4 |
+     \ set shiftwidth=4 |
 set autoindent
 set smartindent
 set smarttab
 set breakindent
 set expandtab
+set shiftwidth=2
 
 set textwidth=80
 

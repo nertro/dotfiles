@@ -2,6 +2,8 @@ vim.cmd([[
 set completeopt=menu,menuone,noselect
 ]])
 
+-- -- cmp_nvim_ultisnips setup
+local cmp_nvim_ultisnips = require 'cmp_nvim_ultisnips.mappings'
   -- Setup nvim-cmp.
 local cmp = require'cmp'
 
@@ -15,7 +17,6 @@ snippet = {
     mapping = {
       ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
       ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-      ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
       ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
       ['<C-e>'] = cmp.mapping({
         i = cmp.mapping.abort(),
@@ -37,8 +38,16 @@ cmp.setup.filetype('gitcommit', {
     { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
   }, {
     { name = 'buffer' },
-  },
+  }
+)
+})
+
+cmp.setup.filetype('sql', {
+  sources = cmp.config.sources({
     { name = 'vim-dadbod-completion' }
+  }, {
+    { name = 'buffer' },
+  }
 )
 })
 
@@ -66,6 +75,9 @@ vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<C
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<space>eq', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<space>es', '<cmd>UltiSnipsEdit<CR>', opts)
+vim.g.UltiSnipsJumpForwardTrigger = '<C-l>'
+vim.g.UltiSnipsJumpBackwardTrigger = '<C-h>'
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -86,52 +98,6 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
--- -- "Add additional capabilities supported by nvim-cmp
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
--- -- cmp_nvim_ultisnips setup
--- local cmp_nvim_ultisnips = require 'cmp_nvim_ultisnips.mappings'
-
--- -- nvim-cmp setup
--- local cmp = require 'cmp'
--- cmp.setup {
---   snippet = {
---     expand = function(args)
--- 	vim.fn["UltiSnips#Anon"](args.body)
---     end,
---   },
---   mapping = {
---     ['<C-p>'] = cmp.mapping.select_prev_item(),
---     ['<C-n>'] = cmp.mapping.select_next_item(),
---     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
---     ['<C-f>'] = cmp.mapping.scroll_docs(4),
---     ['<C-Space>'] = cmp.mapping.complete(),
---     ['<C-e>'] = cmp.mapping.close(),
---     ['<CR>'] = cmp.mapping.confirm {
---       behavior = cmp.ConfirmBehavior.Replace,
---       select = true,
---     },
---     ['<Tab>'] = function(fallback)
---       if cmp.visible() then
---         cmp.select_next_item()
---       else
---         cmp_nvim_ultisnips.expand_or_jump_forwards(fallback)
---       end
---     end,
---     ['<S-Tab>'] = function(fallback)
---       if cmp.visible() then
---         cmp.select_prev_item()
---       else
---         cmp_nvim_ultisnips.jump_backward(fallback)
---       end
---     end,
---   },
---   sources = {
---     { name = 'nvim_lsp' },
---     { name = 'ultisnips' },
---   },
--- }
 
 local lsp_installer = require("nvim-lsp-installer")
 
@@ -164,5 +130,5 @@ lsp_installer.on_server_ready(function(server)
     server:setup(opts)
 end)
 
-vim.cmd([[autocmd BufWritePre *.tf lua vim.lsp.buf.formatting_sync()]])
+-- vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting()]])
 

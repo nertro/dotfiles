@@ -8,8 +8,14 @@ export PATH=$HOME/juliav1.7:$HOME/.julia/bin:$HOME/.emacs.d/bin:$PATH
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
+# local installs
+export PATH=$HOME/.local/bin:$PATH
+
 # go
+# stable
 export PATH=/usr/local/go/bin:$PATH
+# latest go dev version
+export PATH=$HOME/go/bin:$PATH
 
 # ruby
 export PATH=/usr/bin/gem:$PATH
@@ -126,14 +132,71 @@ alias lc="colorls --sd -A"
 alias pup="pip3 install -U pip"
 alias pir="pip3 install -r requirements.txt"
 alias pipi="pip3 install --no-use-pep517 $@"
-alias editzsh="nvim ~/.zshrc"
+alias editzsh="nvim ~/Projects/dotfiles/.zshrc"
 
 # Custom functions
-function activate(){
-	source "$@"/bin/activate;
+function venv_is_active () {
+  echo "Checking for active venv.."
+  if [[ "$VIRTUAL_ENV" == "" ]]; then
+    echo "..no active venv detected."
+    return 0
+  else
+    echo "..detected active venv in: $VIRTUAL_ENV"
+    return 1
+  fi
+}
+function dvenv () {
+  default_name=".${PWD##*/}_venv";
+  venv_name="${@:-$default_name}";
+  venv_is_active
+  check_venv=$?
+  if [[ $check_venv == 1 ]]; then
+    echo "Deactivating ${VIRTUAL_ENV##*/}.."
+    deactivate
+    echo "..finished venv deactivate"
+  fi
+}
+function avenv(){
+  dvenv
+  default_name=".${PWD##*/}_venv";
+  venv_name="${@:-$default_name}";
+  echo "Activating venv $venv_name..";
+  source $venv_name/bin/activate;
+  echo "..finished venv activate."
 }
 
-# additional zsh plugins 
+function cvenv(){
+  echo "Venv creation started.."
+  dvenv
+  python_version="3.10.2";
+  venv_name=".${PWD##*/}_venv"
+  while getopts ":p:v:" option; do
+    case "${option}" in
+      p)
+        python_version=${OPTARG}
+        ;;
+      v)
+        venv_name=${OPTARG}
+        ;;
+      *)
+        echo "usage: -p python version e.g. 3.10.2 | -v venv name e.g. .venv default='.<foldername>_venv'"
+        ;;
+    esac
+  done
+  echo "..setting local python version: $python_version..";
+  pyenv local $python_version;
+  echo "..creating venv with name: $venv_name..";
+  if [[ -d "$venv_name" ]]; then
+    echo "Error venv with name $venv_name already exists at $PWD"
+    echo "Exiting venv creation."
+  else
+    python -m venv $venv_name;
+    avenv $venv_name
+    echo "..finished venv creation $venv_name with Python $python_version."
+  fi
+}
+
+# additional zsh plugins
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

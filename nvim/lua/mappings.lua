@@ -65,12 +65,44 @@ vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>fgr', '<cmd>lua require("telescope").extensions.live_grep_raw.live_grep_raw()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader><leader>', '<cmd>Telescope find_files<CR>', opts)
+-- Telekasten
+vim.api.nvim_set_keymap('n', '<leader>zf', '<cmd>lua require("telekasten").find_notes()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>zF', '<cmd>lua require("telekasten").find_friends()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>zb', '<cmd>lua require("telekasten").show_backlinks()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>zg', '<cmd>lua require("telekasten").search_notes()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>zlf', '<cmd>lua require("telekasten").follow_link()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>zli', '<cmd>lua require("telekasten").insert_link()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>zT', '<cmd>lua require("telekasten").goto_today()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>zW', '<cmd>lua require("telekasten").goto_thisweek()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>zw', '<cmd>lua require("telekasten").find_weekly_notes()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>zn', '<cmd>lua require("telekasten").new_note()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>zN', '<cmd>lua require("telekasten").new_templated_note()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>zy', '<cmd>lua require("telekasten").yank_notelink()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>zc', '<cmd>lua require("telekasten").show_calendar()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>zC', '<cmd>CalendarT<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>zi', '<cmd>lua require("telekasten").paste_img_and_link()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>zt', '<cmd>lua require("telekasten").toggle_todo()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>zI', '<cmd>lua require("telekasten").insert_img_link', opts)
+vim.api.nvim_set_keymap('n', '<leader>zp', '<cmd>lua require("telekasten").preview_img()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>zm', '<cmd>lua require("telekasten").browse_media()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>z3', '<cmd>lua require("telekasten").show_tags()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>zr', '<cmd>lua require("telekasten").rename_note()<CR>', opts)
+
+-- " on hesitation, bring up the panel
+-- vim.api.nvim_set_keymap('n', '<leader>z', '<cmd>Telekasten panel<CR>', opts)
+
+-- " we could define [[ in **insert mode** to call insert link
+-- " inoremap [[ <cmd>:lua require('telekasten').insert_link()<CR>
+-- " alternatively: leader [
+-- inoremap <leader>[ <cmd>:lua require('telekasten').insert_link(opts)<CR>
+-- inoremap <leader>zt <cmd>:lua require('telekasten').toggle_todo(opts)<CR>
+-- inoremap # <cmd>lua require('telekasten').show_tags(opts)<cr>
 -- dadbod
 vim.api.nvim_set_keymap('n', '<leader>du', '<cmd>DBUIToggle<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>df', '<cmd>DBUIFindBuffer<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>dr', '<cmd>DBUIRenameBuffer<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>dl', '<cmd>DBUILastQueryInfo<CR>', opts)
--- git 
+-- git
 vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>G<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>gv', '<cmd>GV<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>gp', '<cmd>G push<CR>', opts)

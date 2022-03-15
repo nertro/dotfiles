@@ -46,18 +46,14 @@ vim.api.nvim_set_keymap( 'v', 'k', 'gk', opts)
 -- window navigation
 vim.api.nvim_set_keymap( 'n', 'vv', '<C-w>v', opts)
 vim.api.nvim_set_keymap( 'n', 'ss', '<C-w>s', opts)
-vim.api.nvim_set_keymap( 'n', '<C-h>', '<C-w>h', opts)
-vim.api.nvim_set_keymap( 'n', '<C-j>', '<C-w>j', opts)
-vim.api.nvim_set_keymap( 'n', '<C-k>', '<C-w>k', opts)
-vim.api.nvim_set_keymap( 'n', '<C-l>', '<C-w>l', opts)
--- M.project_fr = function (source, target)
---   vim.api.nvim_call_function("Ag", {source})
---   vim.cmd([[
---     terminal A-a
---     <CR>
---   ]])
---   vim.cmd("cfdo! %s/" .. source .. "/" .. target .. "/g")
--- end
+-- window navigation mapping for knubie/vim-kitty-navigator
+-- set it up manually because the default is not working
+
+vim.g.kitty_navigator_no_mappings = 1
+vim.api.nvim_set_keymap( 'n', '<C-h>', '<cmd>KittyNavigateLeft<CR>', opts)
+vim.api.nvim_set_keymap( 'n', '<C-j>', '<cmd>KittyNavigateDown<CR>', opts)
+vim.api.nvim_set_keymap( 'n', '<C-k>', '<cmd>KittyNavigateUp<CR>', opts)
+vim.api.nvim_set_keymap( 'n', '<C-l>', '<cmd>KittyNavigateRight<CR>', opts)
 -- Commands
 vim.api.nvim_set_keymap('n', '<leader>;', '<cmd>botright 70vsp term://zsh<CR>ia', opts)
 vim.api.nvim_set_keymap( 'n', '<leader>q', '<cmd>q<CR>', opts)

@@ -1,18 +1,3 @@
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin(stdpath('data') . '/plugged')
-
-" Use relese branch (recommend)
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-dadbod'
-Plug 'kristijanhusak/vim-dadbod-ui'
-Plug 'junegunn/gv.vim'
-call plug#end()
-
-" Load plugins here
 lua require('init')
 
 let g:python3_host_prog = '/Users/menajacobs/.config/nvim/.nvim-venv/bin/python'

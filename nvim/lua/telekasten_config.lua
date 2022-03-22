@@ -124,7 +124,7 @@ require('telekasten').setup({
 -- hi tkBrackets ctermfg=gray guifg=gray
 vim.cmd([[
   " real yellow
-  hi tkHighlight ctermbg=yellow ctermfg=darkred cterm=bold guibg=yellow guifg=darkred gui=bold
+  " hi tkHighlight ctermbg=yellow ctermfg=darkred cterm=bold guibg=yellow guifg=darkred gui=bold
   " gruvbox
   "hi tkHighlight ctermbg=214 ctermfg=124 cterm=bold guibg=#fabd2f guifg=#9d0006 gui=bold
 

@@ -1,5 +1,3 @@
-vim.cmd[[colorscheme bloop]]
-
 local lsp_status = require('lsp-status')
 -- completion_customize_lsp_label as used in completion-nvim
 -- Optional: customize the kind labels used in identifying the current function.
@@ -24,3 +22,23 @@ require('lualine').setup{
   }
 }
 
+vim.cmd[[colorscheme bloop]]
+vim.cmd([[
+set completeopt=menu,menuone,noselect
+" gray
+highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
+" blue
+highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
+highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
+" light blue
+highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
+highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
+" pink
+highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
+highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
+" front
+highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
+highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+]])

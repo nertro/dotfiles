@@ -17,7 +17,6 @@ vim.api.nvim_set_keymap( 'n', 'vv', '<C-w>v', opts)
 vim.api.nvim_set_keymap( 'n', 'ss', '<C-w>s', opts)
 -- window navigation mapping for knubie/vim-kitty-navigator
 -- set it up manually because the default is not working
-
 vim.g.kitty_navigator_no_mappings = 1
 vim.api.nvim_set_keymap( 'n', '<C-h>', '<cmd>KittyNavigateLeft<CR>', opts)
 vim.api.nvim_set_keymap( 'n', '<C-j>', '<cmd>KittyNavigateDown<CR>', opts)
@@ -28,6 +27,8 @@ vim.api.nvim_set_keymap('n', '<leader>;', '<cmd>botright 70vsp term://zsh<CR>ia'
 vim.api.nvim_set_keymap( 'n', '<leader>q', '<cmd>q<CR>', opts)
 vim.api.nvim_set_keymap( 'n', '<C-s>', '<cmd>w<CR>', opts)
 vim.api.nvim_set_keymap( 'i', '<C-s>', '<Esc><cmd>w<CR>', opts)
+vim.api.nvim_set_keymap( 'i', 'wwq', '<Esq>:wq<CR>', opts)
+vim.api.nvim_set_keymap( 'n', '<leader>wq', '<Esc>:wq<CR>', opts)
 -- Telescope
 vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', opts)

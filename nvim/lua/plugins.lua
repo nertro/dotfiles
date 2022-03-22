@@ -1,5 +1,9 @@
-
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
+vim.cmd([[
+augroup updateplugins
+  au!
+  au BufWritePost $HOME/Projects/dotfiles/nvim/lua/plugins.lua :so % | PackerSync
+]])
 
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
@@ -88,4 +92,3 @@ return require('packer').startup(function()
   use 'nvim-lua/lsp-status.nvim'
   use 'nocksock/bloop-vim'
 end)
-

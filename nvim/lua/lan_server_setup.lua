@@ -171,7 +171,7 @@ lsp_installer.on_server_ready(function(server)
           },
           pydocstyle = {
             enabled = true,
-            maxLineLength = 80,
+            maxLineLength = 76,
             convention = 'google'
           },
           pyflakes = { enabled = true },

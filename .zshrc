@@ -135,7 +135,6 @@ alias ccc="cz c"
 alias lc="colorls --sd -A"
 alias pup="pip3 install -U pip"
 alias pir="pip3 install -r requirements.txt"
-alias pipi="pip3 install --no-use-pep517 $@"
 alias editzsh="nvim ~/Projects/dotfiles/.zshrc"
 
 # Custom functions

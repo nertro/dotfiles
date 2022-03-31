@@ -1,5 +1,10 @@
 --# See lan server mappings in lan_server_setup.lua
 local opts = { noremap=true, silent=true }
+vim.cmd([[
+augroup convert_vim_maps
+  au!
+  au BufEnter $HOME/Projects/dotfiles/nvim/lua/mappings.lua :vnoremap <buffer> <localleader>tl :s/\s*\([nivc]\).*silent>\s*\(\S*\)\s\+\(:\?\)\(.*\)$/vim.api.nvim_set_keymap("\1", "\2", "\<cmd\>\4", opts)<CR>
+]])
 --# Personal Mappings
 -- Keys
 vim.g.mapleader = " "

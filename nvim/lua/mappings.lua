@@ -3,7 +3,7 @@ local opts = { noremap=true, silent=true }
 --# Personal Mappings
 -- Keys
 vim.g.mapleader = " "
-vim.g.maplocalleader = ';'
+vim.g.maplocalleader = ';;'
 vim.api.nvim_set_keymap( 'i', 'jf', '<Esc>', opts)
 vim.api.nvim_set_keymap( 't', 'jf', '<C-\\><C-n>', opts)
 vim.api.nvim_set_keymap( 'n', 'j', 'gj', opts)
@@ -35,6 +35,17 @@ vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>fgr', '<cmd>lua require("telescope").extensions.live_grep_raw.live_grep_raw()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader><leader>', '<cmd>Telescope find_files<CR>', opts)
+-- dap
+vim.api.nvim_set_keymap("n", "<F2>", "<cmd>lua require'dap'.continue()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<F9>", "<cmd>lua require'dap'.step_over()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<F8>", "<cmd>lua require'dap'.step_into()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<F3>", "<cmd>lua require'dap'.step_out()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>pb", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>pB", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>plp", "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>pr", "<cmd>lua require'dap'.repl.open()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>pl", "<cmd>lua require'dap'.run_last()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>pc", "<cmd>lua require'dap'.close()<CR>", opts)
 -- Trouble
 vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", opts)
@@ -57,11 +68,7 @@ vim.api.nvim_set_keymap('n', '<leader>zN', '<cmd>lua require("telekasten").new_t
 vim.api.nvim_set_keymap('n', '<leader>zy', '<cmd>lua require("telekasten").yank_notelink()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>zc', '<cmd>lua require("telekasten").show_calendar()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>zC', '<cmd>CalendarT<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>zi', '<cmd>lua require("telekasten").paste_img_and_link()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>zt', '<cmd>lua require("telekasten").toggle_todo()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>zI', '<cmd>lua require("telekasten").insert_img_link', opts)
-vim.api.nvim_set_keymap('n', '<leader>zp', '<cmd>lua require("telekasten").preview_img()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>zm', '<cmd>lua require("telekasten").browse_media()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>z3', '<cmd>lua require("telekasten").show_tags()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>zr', '<cmd>lua require("telekasten").rename_note()<CR>', opts)
 

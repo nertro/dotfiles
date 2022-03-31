@@ -17,7 +17,7 @@ cmp.setup({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<Tab>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -31,6 +31,7 @@ cmp.setup({
 cmp.setup.filetype('gitcommit', {
   sources = cmp.config.sources({
     { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+    { name = 'ultisnips' }, -- For ultisnips users.
   }, {
     { name = 'buffer' },
   }
@@ -39,7 +40,8 @@ cmp.setup.filetype('gitcommit', {
 
 cmp.setup.filetype('sql', {
   sources = cmp.config.sources({
-    { name = 'vim-dadbod-completion' }
+    { name = 'vim-dadbod-completion' },
+    { name = 'ultisnips' }, -- For ultisnips users.
   }, {
     { name = 'buffer' },
   }
@@ -155,7 +157,7 @@ lsp_installer.on_server_ready(function(server)
     print('pylsp setup')
     opts.settings = {
       pylsp = {
-        configurationSources = {"flake8"},
+        configurationSources = {"flake8", "pylint"},
         root_dir = function(fname)
           local root_files = {
             'pyproject.toml',

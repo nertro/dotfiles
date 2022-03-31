@@ -1,4 +1,12 @@
+local trouble = require("trouble.providers.telescope")
+
 require'telescope'.setup {
+  defaults = {
+    mappings = {
+      -- i = { ["<c-x>"] = trouble.open_with_trouble },
+      n = { ["<A-x>"] = trouble.open_with_trouble },
+    },
+  },
   extensions = {
     media_files = {
       -- filetypes whitelist
@@ -39,3 +47,5 @@ require'telescope'.setup {
   },
 }
 require'telescope'.load_extension('media_files')
+require'telescope'.load_extension('dap')
+

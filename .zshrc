@@ -11,6 +11,9 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 # local installs
 export PATH=$HOME/.local/bin:$PATH
 
+# poetry
+export PATH="$HOME/.poetry/bin:$PATH"
+
 # go
 # stable
 export PATH=/usr/local/go/bin:$PATH
@@ -97,7 +100,7 @@ setopt HIST_IGNORE_ALL_DUPS
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git colored-man-pages fzf dash aliases)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -209,3 +212,4 @@ export PATH="/opt/homebrew/bin:opt/sqlite/bin:$PATH"
 eval "$(pyenv init --path)"
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 eval "$(rbenv init - zsh)"
+

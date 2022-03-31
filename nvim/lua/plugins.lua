@@ -39,6 +39,7 @@ return require('packer').startup(function()
       'nvim-lua/plenary.nvim'
     }
   }
+  use 'simnalamburt/vim-mundo'
   -- lsp and syntax
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use 'williamboman/nvim-lsp-installer'
@@ -60,6 +61,17 @@ return require('packer').startup(function()
   use 'honza/vim-snippets'
   use 'quangnguyen30192/cmp-nvim-ultisnips'
   use 'windwp/nvim-autopairs'
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  }
+  -- debugging
+  use { 'nvim-telescope/telescope-dap.nvim' }
+  use { 'mfussenegger/nvim-dap' }
+  use { "rcarriga/nvim-dap-ui" }
+  -- use { 'mfussenegger/nvim-dap-python' }
   -- zettelkasten
   use 'nvim-lua/popup.nvim'
   use 'nvim-telescope/telescope-media-files.nvim'

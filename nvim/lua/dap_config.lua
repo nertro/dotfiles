@@ -2,7 +2,7 @@ local dap = require('dap')
 dap.defaults.fallback.terminal_win_cmd = '80vsplit new'
 dap.adapters.python = {
   type = 'executable';
-  command = '/Users/menajacobs/.config/nvim/.nvim-venv/bin/ipython';
+  command = os.getenv('HOME') .. '.config/nvim/.nvim-venv/bin/ipython';
   args = { '-m', 'debugpy.adapter' };
 }
 

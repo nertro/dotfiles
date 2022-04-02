@@ -16,8 +16,8 @@ require('toggleterm_config')
 local g = vim.g
 local cmd = vim.cmd
 
-g.python3_host_prog = '/Users/menajacobs/.config/nvim/.nvim-venv/bin/python'
-g.ruby_host_prog = '/Users/menajacobs/.rbenv/versions/3.1.1/bin/neovim-ruby-host'
+g.python3_host_prog = os.getenv('HOME') .. '/.config/nvim/.nvim-venv/bin/python'
+g.ruby_host_prog = os.getenv('HOME') .. '.rbenv/versions/3.1.1/bin/neovim-ruby-host'
 
 g.db_ui_env_variable_url = 'env_var_psql_user'
 

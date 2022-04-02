@@ -77,10 +77,6 @@ return require('packer').startup(function()
   use 'nvim-telescope/telescope-media-files.nvim'
   use 'renerocksai/calendar-vim'
   use 'renerocksai/telekasten.nvim'
-  use({
-    'mrjones2014/dash.nvim',
-    run = 'make install',
-  })
   use {'edluffy/hologram.nvim'}
   -- focus
   use {

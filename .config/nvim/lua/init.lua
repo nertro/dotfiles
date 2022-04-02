@@ -17,7 +17,7 @@ local g = vim.g
 local cmd = vim.cmd
 
 g.python3_host_prog = os.getenv('HOME') .. '/.config/nvim/.nvim-venv/bin/python'
-g.ruby_host_prog = os.getenv('HOME') .. '.rbenv/versions/3.1.1/bin/neovim-ruby-host'
+-- g.ruby_host_prog = os.getenv('HOME') .. '.rbenv/versions/3.1.1/bin/neovim-ruby-host'
 
 g.db_ui_env_variable_url = 'env_var_psql_user'
 
@@ -80,4 +80,4 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.opt.undofile = true
-vim.opt.undodir = '/tmp'
+vim.opt.undodir = os.getenv('HOME') .. '.vim/tmp'

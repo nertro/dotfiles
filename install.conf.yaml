@@ -11,9 +11,9 @@
     ~/.zshrc: .zshrc
     ~/.tmux.conf: .tmux.conf
     ~/.oh-my-zsh/custom: .oh-my-zsh/custom
-    ~/.config:
-      glob: true
-      path: .config/*
+    ~/.config/kitty/kitty.conf: .config/kitty/kitty.conf
+    ~/.config/nvim/init.vim: .config/nvim/init.vim
+    ~/.config/nvim/lua: .config/nvim/lua
 
 - create:
   - ~/.vim/undo-history
@@ -21,4 +21,13 @@
   - ~/.vim/.netrwhist
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
+  - [git submodule update --init --recursive, Installing Submodules]
+  - chsh -s $(which zsh)
+  - python -m venv ~/.config/nvim/.nvim-venv
+  - ~/.config/nvim/.nvim-venv/bin/pip install -U pip
+  - ~/.config/nvim/.nvim-venv/bin/pip install -U pip-tools
+  - ~/.config/nvim/.nvim-venv/bin/pip-sync .config/nvim/nvim-requirements.txt
+  - nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync';
+  - nvim --headless -c "LspInstall --sync pylsp" -c q
+  - ~/.local/share/nvim/lsp_servers/pylsp/venv/bin/pip install -U pip
+  - ~/.local/share/nvim/lsp_servers/pylsp/venv/bin/pip install pyls-flake8 pylsp-mypy python-lsp-black pyls-isort pyls-memestra pylsp-rope

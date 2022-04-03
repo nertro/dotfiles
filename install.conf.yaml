@@ -23,6 +23,7 @@
   - ~/.vim/undo-history
   - ~/.vim/tmp
   - ~/.vim/.netrwhist
+  - ~/.local/share/nvim/site/pack/packer/start
 
 - shell:
   - [git submodule update --init --recursive, Installing Submodules]

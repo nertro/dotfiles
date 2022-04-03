@@ -100,7 +100,7 @@ setopt HIST_IGNORE_ALL_DUPS
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages fzf dash aliases)
+plugins=(git colored-man-pages fzf dash aliases zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -199,9 +199,6 @@ function cvenv(){
   fi
 }
 
-# additional zsh plugins
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ~/.zshrc
 eval "$(starship init zsh)"

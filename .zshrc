@@ -25,7 +25,7 @@ export PATH=/usr/bin/gem:$PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/menajacobs/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # X11
 export PATH=/opt/X11/bin:$PATH
@@ -202,10 +202,14 @@ function cvenv(){
 
 # ~/.zshrc
 eval "$(starship init zsh)"
-
-export PATH="/opt/homebrew/bin:opt/sqlite/bin:$PATH"
-
 eval "$(pyenv init --path)"
-export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
-eval "$(rbenv init - zsh)"
+eval "$(pyenv init -)"
+
+if [[ -d "/opt/homebrew" ]]; then
+  export PATH="/opt/homebrew/bin:opt/sqlite/bin:$PATH"
+  export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+fi
+if ! type "$rbenv" > /dev/null; then
+  eval "$(rbenv init - zsh)"
+fi
 

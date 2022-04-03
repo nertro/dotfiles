@@ -22,7 +22,6 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing Submodules]
-  - chsh -s $(which zsh)
   - python -m venv ~/.config/nvim/.nvim-venv
   - ~/.config/nvim/.nvim-venv/bin/pip install -U pip
   - ~/.config/nvim/.nvim-venv/bin/pip install -U pip-tools

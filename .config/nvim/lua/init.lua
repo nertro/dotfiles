@@ -80,4 +80,4 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.opt.undofile = true
-vim.opt.undodir = os.getenv('HOME') .. '.vim/tmp'
+vim.opt.undodir = os.getenv('HOME') .. '/.vim/tmp'

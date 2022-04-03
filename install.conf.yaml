@@ -8,10 +8,12 @@
       force: true
 
 - link:
-    ~/.zshrc: .zshrc
+    ~/.zshrc:
+      path: .zshrc
       force: true
     ~/.tmux.conf: .tmux.conf
-    ~/.oh-my-zsh/custom: .oh-my-zsh/custom
+    ~/.oh-my-zsh/custom:
+      path: .oh-my-zsh/custom
       force: true
     ~/.config/kitty/kitty.conf: .config/kitty/kitty.conf
     ~/.config/nvim/init.vim: .config/nvim/init.vim

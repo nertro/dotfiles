@@ -209,7 +209,7 @@ if [[ -d "/opt/homebrew" ]]; then
   export PATH="/opt/homebrew/bin:opt/sqlite/bin:$PATH"
   export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 fi
-if ! type "$rbenv" > /dev/null; then
+if ( $+commands[rbenv] )); then
   eval "$(rbenv init - zsh)"
 fi
 

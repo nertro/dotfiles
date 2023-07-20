@@ -10,6 +10,7 @@ require('dap_config')
 require('gitsigns_setup')
 require('mappings')
 require('toggleterm_config')
+require('nvim-highlight-colors').setup {}
 
 -- old init vim.opt.tent
 -- use https://icyphox.sh/blog/nvim-lua/ for vim.opt.lua reference

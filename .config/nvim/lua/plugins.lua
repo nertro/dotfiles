@@ -22,7 +22,7 @@ return require('packer').startup(function()
 	    'nvim-telescope/telescope.nvim',
 	      requires = {
 		      {'nvim-lua/plenary.nvim'},
-		      { 'nvim-telescope/telescope-live-grep-raw.nvim' }
+		      { 'nvim-telescope/telescope-live-grep-args.nvim' }
 	      }
       }
   use {
@@ -41,8 +41,11 @@ return require('packer').startup(function()
   }
   use 'simnalamburt/vim-mundo'
   -- lsp and syntax
-  use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
-  use 'williamboman/nvim-lsp-installer'
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  }
   use 'godlygeek/tabular'
   use 'preservim/vim-markdown'
   use {
@@ -93,6 +96,17 @@ return require('packer').startup(function()
   use {'knubie/vim-kitty-navigator', run = 'cp ./*.py ~/.config/kitty/'}
   use 'akinsho/toggleterm.nvim'
   -- editor style
+  use'brenoprata10/nvim-highlight-colors'
+  use {
+    "themaxmarchuk/tailwindcss-colors.nvim",
+    -- load only on require("tailwindcss-colors")
+    module = "tailwindcss-colors",
+    -- run the setup function after plugin is loaded
+    config = function ()
+      -- pass config options here (or nothing to use defaults)
+      require("tailwindcss-colors").setup()
+    end
+  }
   use {
   'nvim-lualine/lualine.nvim',
   requires = { 'kyazdani42/nvim-web-devicons', opt = true }}

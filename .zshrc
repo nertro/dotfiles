@@ -130,12 +130,14 @@ export EDITOR='/usr/local/bin/nvim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 alias pc="pre-commit run"
 alias ccc="cz c"
 alias lc="colorls --sd -A"
 alias pup="pip3 install -U pip"
 alias pir="pip3 install -r requirements.txt"
 alias editzsh="nvim ~/Projects/dotfiles/.zshrc"
+alias pipdata="pip install -U pip; pip install pandas seaborn jupyterlab matplotlib numpy;"
 
 # Custom functions
 function venv_is_active () {

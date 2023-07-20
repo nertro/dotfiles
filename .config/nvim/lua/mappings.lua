@@ -22,11 +22,11 @@ vim.api.nvim_set_keymap( 'n', 'vv', '<C-w>v', opts)
 vim.api.nvim_set_keymap( 'n', 'ss', '<C-w>s', opts)
 -- window navigation mapping for knubie/vim-kitty-navigator
 -- set it up manually because the default is not working
-vim.g.kitty_navigator_no_mappings = 1
-vim.api.nvim_set_keymap( 'n', '<C-h>', '<cmd>KittyNavigateLeft<CR>', opts)
-vim.api.nvim_set_keymap( 'n', '<C-j>', '<cmd>KittyNavigateDown<CR>', opts)
-vim.api.nvim_set_keymap( 'n', '<C-k>', '<cmd>KittyNavigateUp<CR>', opts)
-vim.api.nvim_set_keymap( 'n', '<C-l>', '<cmd>KittyNavigateRight<CR>', opts)
+-- vim.g.kitty_navigator_no_mappings = 1
+-- vim.api.nvim_set_keymap( 'n', '<C-h>', '<cmd>KittyNavigateLeft<CR>', opts)
+-- vim.api.nvim_set_keymap( 'n', '<C-j>', '<cmd>KittyNavigateDown<CR>', opts)
+-- vim.api.nvim_set_keymap( 'n', '<C-k>', '<cmd>KittyNavigateUp<CR>', opts)
+-- vim.api.nvim_set_keymap( 'n', '<C-l>', '<cmd>KittyNavigateRight<CR>', opts)
 -- no kitty alternative
 -- vim.g.kitty_navigator_no_mappings = 1
 -- vim.api.nvim_set_keymap( 'n', '<C-h>', '<C-w>h', opts)
@@ -43,7 +43,7 @@ vim.api.nvim_set_keymap( 'n', '<leader>wq', '<Esc>:wq<CR>', opts)
 -- Telescope
 vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>fgr', '<cmd>lua require("telescope").extensions.live_grep_raw.live_grep_raw()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>fgr', '<cmd>lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader><leader>', '<cmd>Telescope find_files<CR>', opts)
 -- dap
@@ -64,6 +64,17 @@ vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr
 vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>", opts)
 vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", opts)
 vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", opts)
+-- Goto Preview
+vim.api.nvim_set_keymap('n', 'gpd', '<cmd>lua require("goto-preview").goto_preview_definition()<CR>', opts)
+vim.api.nvim_set_keymap('n', 'gpt', '<cmd>lua require("goto-preview").goto_preview_type_definition()<CR>', opts)
+vim.api.nvim_set_keymap('n', 'gpi', '<cmd>lua require("goto-preview").goto_preview_implementation()<CR>', opts)
+vim.api.nvim_set_keymap('n', 'gP', '<cmd>lua require("goto-preview").close_all_win()<CR>', opts)
+vim.api.nvim_set_keymap('n', 'gpr', '<cmd>lua require("goto-preview").goto_preview_references()<CR>', opts)
+-- LSP
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<space>eq', vim.diagnostic.setloclist)
 -- Telekasten
 vim.api.nvim_set_keymap('n', '<leader>zf', '<cmd>lua require("telekasten").find_notes()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>zF', '<cmd>lua require("telekasten").find_friends()<CR>', opts)

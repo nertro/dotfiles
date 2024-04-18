@@ -174,7 +174,7 @@ function avenv(){
 function cvenv(){
   echo "Venv creation started.."
   dvenv
-  python_version="3.10.2";
+  python_version="3.11.6";
   venv_name=".${PWD##*/}_venv"
   while getopts ":p:v:" option; do
     case "${option}" in
